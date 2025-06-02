@@ -1,0 +1,554 @@
+/* Task Management Styles - Add to your styles.css file */
+
+/* Task Management Button */
+.task-button {
+  background-color: var(--primary-color);
+}
+
+.task-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Task Dashboard Modal */
+.task-dashboard-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.task-dashboard-modal.open {
+  opacity: 1;
+}
+
+.task-dashboard-content {
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  width: 95%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  color: var(--text-color);
+}
+
+.task-dashboard-modal.open .task-dashboard-content {
+  transform: translateY(0);
+}
+
+/* Dashboard Header */
+.task-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.task-dashboard-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.close-dashboard {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.close-dashboard:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dashboard Tabs */
+.task-dashboard-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.task-dashboard-tabs .tab-button {
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  transition: opacity 0.2s, border-bottom 0.2s;
+  border-bottom: 3px solid transparent;
+}
+
+.task-dashboard-tabs .tab-button.active {
+  opacity: 1;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.task-dashboard-tabs .tab-button:hover {
+  opacity: 1;
+}
+
+/* Dashboard Body */
+.task-dashboard-body {
+  padding: 24px;
+}
+
+.task-tab-content {
+  display: none;
+}
+
+.task-tab-content.active {
+  display: block;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(126, 87, 194, 0.1) 0%, rgba(3, 169, 244, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Dashboard Sections */
+.dashboard-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.section h3 {
+  margin: 0 0 16px 0;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  transition: background-color 0.2s;
+}
+
+.task-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.task-priority {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.task-priority.urgent {
+  background: rgba(244, 67, 54, 0.2);
+  border: 2px solid #f44336;
+}
+
+.task-priority.high {
+  background: rgba(255, 152, 0, 0.2);
+  border: 2px solid #ff9800;
+}
+
+.task-priority.medium {
+  background: rgba(255, 235, 59, 0.2);
+  border: 2px solid #ffeb3b;
+}
+
+.task-priority.low {
+  background: rgba(76, 175, 80, 0.2);
+  border: 2px solid #4caf50;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-color);
+}
+
+.task-meta {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.task-description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.complete-task-btn {
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.complete-task-btn:hover {
+  background: #4caf50;
+  transform: scale(1.1);
+}
+
+/* Project List */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 20px;
+  transition: background-color 0.2s;
+}
+
+.project-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.project-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.project-meta {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 12px;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.project-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  min-width: 40px;
+}
+
+/* Filters */
+.task-filters,
+.project-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.task-filters select,
+.project-filters select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  min-width: 140px;
+}
+
+.task-filters select:focus,
+.project-filters select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Add Forms */
+.add-forms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.form-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.form-section h3 {
+  margin: 0 0 20px 0;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-section input,
+.form-section textarea,
+.form-section select {
+  padding: 12px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+.form-section input:focus,
+.form-section textarea:focus,
+.form-section select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.form-section input::placeholder,
+.form-section textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-section button[type="submit"] {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.form-section button[type="submit"]:hover {
+  background: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-dashboard-content {
+    width: 98%;
+    margin: 1%;
+  }
+
+  .dashboard-sections {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .add-forms {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .task-filters,
+  .project-filters {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .task-dashboard-tabs {
+    overflow-x: auto;
+  }
+
+  .task-dashboard-tabs .tab-button {
+    white-space: nowrap;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .complete-task-btn {
+    align-self: flex-end;
+  }
+
+  .project-progress {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .progress-text {
+    text-align: center;
+  }
+}
+
+/* Dark mode adjustments */
+.dark-mode .stat-card {
+  background: linear-gradient(135deg, rgba(126, 87, 194, 0.15) 0%, rgba(3, 169, 244, 0.15) 100%);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .task-item,
+.dark-mode .project-item,
+.dark-mode .section,
+.dark-mode .form-section {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .task-item:hover,
+.dark-mode .project-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Animation for task completion */
+@keyframes taskComplete {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+}
+
+.task-item.completing {
+  animation: taskComplete 0.5s ease-in-out;
+}
+
+/* Priority indicators */
+.priority-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.priority-indicator.urgent {
+  background: #f44336;
+}
+
+.priority-indicator.high {
+  background: #ff9800;
+}
+
+.priority-indicator.medium {
+  background: #ffeb3b;
+}
+
+.priority-indicator.low {
+  background: #4caf50;
+}

@@ -1,0 +1,191 @@
+/* Voice and Connection UI Styles - Add to your styles.css */
+
+/* Connection Indicator */
+.connection-indicator {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.connection-indicator.online {
+  background-color: rgba(76, 175, 80, 0.9);
+  color: white;
+}
+
+.connection-indicator.offline {
+  background-color: rgba(255, 152, 0, 0.9);
+  color: white;
+}
+
+.online-dot,
+.offline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.online-dot {
+  background-color: #4caf50;
+}
+
+.offline-dot {
+  background-color: #ff9800;
+}
+
+/* Voice Indicators */
+.voice-indicator,
+.speech-indicator {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.voice-indicator.listening {
+  background-color: rgba(244, 67, 54, 0.9);
+  color: white;
+}
+
+.voice-indicator.idle {
+  background-color: rgba(158, 158, 158, 0.9);
+  color: white;
+}
+
+.speech-indicator.speaking {
+  background-color: rgba(33, 150, 243, 0.9);
+  color: white;
+}
+
+.listening-dot,
+.idle-dot,
+.speaking-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.listening-dot {
+  background-color: #f44336;
+  animation: pulse 1s infinite;
+}
+
+.idle-dot {
+  background-color: #9e9e9e;
+}
+
+.speaking-dot {
+  background-color: #2196f3;
+  animation: pulse 0.8s infinite;
+}
+
+/* Interim Speech Display */
+.interim-speech {
+  background-color: rgba(255, 193, 7, 0.1);
+  border: 1px dashed rgba(255, 193, 7, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+  font-style: italic;
+  color: rgba(255, 193, 7, 0.8);
+  animation: fadeInOut 2s infinite;
+}
+
+/* Voice Control Buttons */
+.voice-button,
+.wake-word-button {
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.voice-button:hover {
+  background-color: #f44336;
+}
+
+.wake-word-button:hover {
+  background-color: #ff9800;
+}
+
+.voice-button.active {
+  background-color: #f44336;
+  animation: pulse 2s infinite;
+}
+
+.wake-word-button.active {
+  background-color: #ff9800;
+  animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .connection-indicator {
+    top: 5px;
+    right: 5px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+
+  .voice-indicator,
+  .speech-indicator {
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Dark mode adjustments */
+.dark-mode .interim-speech {
+  background-color: rgba(255, 193, 7, 0.2);
+  border-color: rgba(255, 193, 7, 0.6);
+  color: rgba(255, 193, 7, 0.9);
+}
+
+/* High contrast mode */
+.high-contrast .connection-indicator,
+.high-contrast .voice-indicator,
+.high-contrast .speech-indicator {
+  border: 2px solid white;
+  font-weight: bold;
+}

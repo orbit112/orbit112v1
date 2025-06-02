@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVE Assistant</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .eve-logo {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .eve-title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .eve-subtitle {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+        
+        .start-button {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .feature-description {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .demo-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .demo-commands {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .demo-command {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .demo-command:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .status-indicator {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(76, 175, 80, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-indicator" id="status-indicator">
+        🤖 EVE is Online
+    </div>
+    
+    <div class="main-container">
+        <div class="eve-logo">🤖</div>
+        <h1 class="eve-title">EVE Assistant</h1>
+        <p class="eve-subtitle">Enhanced Virtual Executive - Your AI-Powered Personal Assistant</p>
+        
+        <button class="start-button" onclick="startEVE()">🚀 Start EVE</button>
+        <button class="start-button" onclick="showDemo()">📋 Try Demo Commands</button>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <div class="feature-title">Application Control</div>
+                <div class="feature-description">
+                    Open applications, manage files, and control your computer with simple voice commands or text input.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
+                <div class="feature-title">Voice Recognition</div>
+                <div class="feature-description">
+                    Speak naturally to EVE. Advanced voice recognition understands your commands and responds with speech.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <div class="feature-title">Task Management</div>
+                <div class="feature-description">
+                    Create, manage, and track your tasks. EVE helps you stay organized and productive throughout your day.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧮</div>
+                <div class="feature-title">Smart Calculations</div>
+                <div class="feature-description">
+                    Perform calculations, get system information, check time and date, and access useful utilities instantly.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-title">Web Search</div>
+                <div class="feature-description">
+                    Search Google, YouTube, and other services directly through EVE. Get information without leaving your workflow.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Fun & Games</div>
+                <div class="feature-description">
+                    Take breaks with jokes, coin flips, dice rolls, and random number generation. EVE makes work enjoyable!
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section" id="demo-section" style="display: none;">
+            <h2>Try These Commands</h2>
+            <p>Click any command below to test EVE's capabilities:</p>
+            
+            <div class="demo-commands">
+                <div class="demo-command" onclick="testCommand('hello')">👋 Say Hello</div>
+                <div class="demo-command" onclick="testCommand('time')">⏰ Current Time</div>
+                <div class="demo-command" onclick="testCommand('calculator')">🧮 Open Calculator</div>
+                <div class="demo-command" onclick="testCommand('tell joke')">😄 Tell a Joke</div>
+                <div class="demo-command" onclick="testCommand('flip coin')">🪙 Flip Coin</div>
+                <div class="demo-command" onclick="testCommand('calculate 25 * 4')">📊 Math: 25 × 4</div>
+                <div class="demo-command" onclick="testCommand('create task Buy groceries')">✅ Create Task</div>
+                <div class="demo-command" onclick="testCommand('list tasks')">📋 List Tasks</div>
+                <div class="demo-command" onclick="testCommand('search artificial intelligence')">🔍 Search AI</div>
+                <div class="demo-command" onclick="testCommand('system info')">💻 System Info</div>
+                <div class="demo-command" onclick="testCommand('help')">❓ Show Help</div>
+                <div class="demo-command" onclick="testCommand('random number 1 100')">🎲 Random 1-100</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="eve-core.js"></script>
+    <script>
+        function showDemo() {
+            const demoSection = document.getElementById('demo-section')
+            demoSection.style.display = demoSection.style.display === 'none' ? 'block' : 'none'
+        }
+        
+        function testCommand(command) {
+            if (!window.EVE) {
+                startEVE()
+                setTimeout(() => {
+                    window.EVE.processInput(command)
+                }, 1000)
+            } else {
+                window.EVE.processInput(command)
+            }
+        }
+        
+        function startEVE() {
+            if (!window.EVE) {
+                window.EVE = new EVECore()
+            }
+            document.getElementById('status-indicator').style.display = 'block'
+        }
+        
+        // Auto-start EVE after 3 seconds
+        setTimeout(() => {
+            startEVE()
+        }, 3000)
+    </script>
+</body>
+</html>
